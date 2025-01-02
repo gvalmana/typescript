@@ -1,12 +1,13 @@
+// @ts-ignore
 import { Configuration } from "webpack";
 import { resolve } from "path";
 
 const config: Configuration = {
   mode: "none",
   entry: {
-    bundle: "./src/Main.ts",
+    "bundle-web": "./src/Main.ts",
   },
-  target: "node",
+  target: "web",
   module: {
     rules: [
       {
@@ -15,6 +16,7 @@ const config: Configuration = {
           loader: "ts-loader",
           options: {
             transpileOnly: true,
+            configFile: "tsconfig.web.json",
           },
         },
       },
